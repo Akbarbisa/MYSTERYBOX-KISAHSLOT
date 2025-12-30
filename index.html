@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-    <!-- Meta Tags Branding -->
+    <!-- Meta Tags Branding KISAH SLOT -->
     <meta property="og:title" content="Mystery Box KISAH SLOT" />
     <meta property="og:description" content="Klaim Hadiah Mystery Box KISAH SLOT" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="./attached_assets/kisah_logo_1767133120577.png" />
+    <meta property="og:image" content="/attached_assets/kisah_logo_1767133120577.png" />
     
     <title>Mystery Box KISAH SLOT</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
@@ -23,11 +23,15 @@
         background: #0a0a0c;
         min-height: 100vh;
       }
+      #root {
+        width: 100%;
+        min-height: 100vh;
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <!-- PAKAI ./ DI DEPAN SRC -->
-    <script type="module" src="./src/main.tsx"></script>
+    <!-- Path ini sudah benar untuk Vercel dengan Root: client -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
