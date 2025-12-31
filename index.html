@@ -1,34 +1,210 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <meta property="og:title" content="Mystery Box KISAH SLOT" />
     <meta property="og:description" content="Klaim Hadiah Mystery Box KISAH SLOT" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/attached_assets/kisah_logo_1767133120577.png" />
+    <meta property="og:image" content="https://api.screenshotmachine.com/?key=ca5106&url=https://kisahslot.com&dimension=1024x768" />
     
     <title>Mystery Box KISAH SLOT</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
     
     <style>
-      body {
-        margin: 0;
-        background: #0a0a0c;
-        min-height: 100vh;
-      }
-      #root {
-        width: 100%;
-        min-height: 100vh;
-      }
+        :root {
+            --gold: #ffcc00;
+            --dark-bg: #0a0a0c;
+            --premium-red: #ff4500;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            background-image: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0c 100%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo {
+            width: 180px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.5));
+        }
+
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+        }
+
+        p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* ANIMASI KOTAK HADIAH */
+        .box-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .box-wrapper:hover {
+            transform: scale(1.1);
+        }
+
+        .box-img {
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+            position: relative;
+            animation: shake 2s infinite;
+        }
+
+        .box-img::after {
+            content: "🎁";
+        }
+
+        /* MODAL / RESULT */
+        #result {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.95);
+            border: 2px solid var(--gold);
+            padding: 30px;
+            border-radius: 20px;
+            width: 85%;
+            max-width: 350px;
+            z-index: 100;
+            box-shadow: 0 0 100px rgba(0,0,0,1);
+            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-claim {
+            display: inline-block;
+            background: linear-gradient(to bottom, #ffcc00, #cc9900);
+            color: black;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* ANIMASI */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+            20%, 40%, 60%, 80% { transform: rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 204, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+        }
+
+        @keyframes popUp {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 99;
+        }
     </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/client/src/main.tsx"></script>
-  </body>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://via.placeholder.com/180x80/0a0a0c/ffcc00?text=KISAH+SLOT" alt="Logo KISAH SLOT" class="logo">
+        
+        <h1>Mystery Box</h1>
+        <p>Ketuk kotak untuk melihat keberuntunganmu hari ini!</p>
+
+        <div class="box-wrapper" onclick="openBox()">
+            <div class="box-img"></div>
+        </div>
+
+        <div style="font-size: 11px; color: #555;">© 2025 KISAH SLOT - All Rights Reserved</div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div id="result">
+        <h2 style="color:var(--gold); margin-top:0;">SELAMAT!</h2>
+        <p style="color:white; font-size: 1.2rem;">Kamu Memenangkan Hadiah:</p>
+        <div id="prizeName" style="font-size: 2rem; font-weight: 800; color: #00ffcc; margin: 20px 0;">Saldo Rp 50.000</div>
+        <p style="font-size: 13px;">Silakan klaim ke WhatsApp Admin kami sekarang!</p>
+        <a href="https://wa.me/628123456789?text=Bos, saya klaim hadiah Mystery Box!" class="btn-claim">KLAIM SEKARANG</a>
+    </div>
+
+    <script>
+        function openBox() {
+            const result = document.getElementById('result');
+            const overlay = document.getElementById('overlay');
+            const prizeName = document.getElementById('prizeName');
+            
+            // List Hadiah Acak
+            const prizes = [
+                "Saldo Rp 25.000",
+                "Saldo Rp 50.000",
+                "Bonus Deposit 100%",
+                "Mystery Gift VIP",
+                "Freechip Rp 10.000"
+            ];
+            
+            const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
+            prizeName.innerText = randomPrize;
+
+            // Efek suara kalau mau ditambahin (opsional)
+            // const audio = new Audio('path_to_sound.mp3'); audio.play();
+
+            overlay.style.display = 'block';
+            result.style.display = 'block';
+        }
+    </script>
+</body>
 </html>
